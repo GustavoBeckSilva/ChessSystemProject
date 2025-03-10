@@ -101,10 +101,18 @@ public class UI {
 		printCapturedPieces(captured);
 		System.out.println();
 		System.out.println("Turn: " + chessMatch.getTurn());
-		System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+		
+		if(!chessMatch.isCheckMate()) {
+			System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
 
-		if(chessMatch.isCheck())
-			System.out.println("Check!");
+			if(chessMatch.isCheck())
+				System.out.println("Check!");
+		}
+		
+		else {
+			System.out.println("Checkmate!");
+			System.out.println("Winner: " + chessMatch.getCurrentPlayer());
+		}
 	}
 	
 	private static void printPiece(ChessPiece piece, boolean background) {
